@@ -1,0 +1,41 @@
+<div class="container">
+  <h1>Weather App</h1>
+  <div class="column">
+    <h2>America</h2>
+    <input
+      type="text"
+      [(ngModel)]="americaFilter"
+      placeholder="Filter by city"
+    />
+    <div class="city" *ngFor="let weather of filterAmericaWeather()">
+      <p>
+        {{ weather.city }}: {{ weather.temperature }} - {{ weather.condition }}
+      </p>
+      <button (click)="handleAmericaClick(weather.city)">Details</button>
+    </div>
+  </div>
+  <div class="column">
+    <h2>Europe</h2>
+    <input
+      type="text"
+      [(ngModel)]="europeFilter"
+      placeholder="Filter by city"
+    />
+    <div class="city" *ngFor="let weather of filterEuropeWeather()">
+      <p>
+        {{ weather.city }}: {{ weather.temperature }} - {{ weather.condition }}
+      </p>
+      <button (click)="handleEuropeClick(weather.city)">Details</button>
+    </div>
+  </div>
+  <div class="column">
+    <h2>Asia</h2>
+    <input type="text" [(ngModel)]="asiaFilter" placeholder="Filter by city" />
+    <div class="city" *ngFor="let weather of filterAsiaWeather()">
+      <p>
+        {{ weather.city }}: {{ weather.temperature }} - {{ weather.condition }}
+      </p>
+      <button (click)="handleAsiaClick(weather.city)">Details</button>
+    </div>
+  </div>
+</div>

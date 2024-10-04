@@ -1,0 +1,19 @@
+@if({ weatherData: weatherData$ | async }; as pageData) {
+<div class="container">
+  <app-weather-column
+    [weatherData]="pageData.weatherData | appRegion : 'America'"
+    (cityClick)="handleCityClick($event)"
+  >
+  </app-weather-column>
+  <app-weather-column
+    [weatherData]="pageData.weatherData | appRegion : 'Europe'"
+    (cityClick)="handleCityClick($event)"
+  >
+  </app-weather-column>
+  <app-weather-column
+    [weatherData]="pageData.weatherData | appRegion : 'Asia'"
+    handleCityClick($event)
+  >
+  </app-weather-column>
+</div>
+}

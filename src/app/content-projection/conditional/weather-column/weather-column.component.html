@@ -1,0 +1,9 @@
+<ng-container *ngTemplateOutlet="titleTemplate"></ng-container>
+
+<input type="text" [(ngModel)]="filter" placeholder="Filter by city" />
+
+<div class="cities">
+  @for(elementTemplate of elementTemplates; track $index) {
+  <ng-container *ngTemplateOutlet="elementTemplate"></ng-container>
+  }
+</div>

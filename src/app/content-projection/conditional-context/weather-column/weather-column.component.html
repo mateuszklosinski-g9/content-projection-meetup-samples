@@ -1,0 +1,11 @@
+<ng-container *ngTemplateOutlet="titleTemplate"></ng-container>
+
+<input type="text" [(ngModel)]="filter" placeholder="Filter by city" />
+
+<div class="cities">
+  @for(element of elements; track $index) {
+  <ng-container
+    *ngTemplateOutlet="elementTemplate; context: { $implicit: element }"
+  ></ng-container>
+  }
+</div>

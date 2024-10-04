@@ -1,0 +1,6 @@
+<h2>America</h2>
+<input type="text" [(ngModel)]="filter" placeholder="Filter by city" />
+<div class="city" *ngFor="let weather of weatherData">
+  <p>{{ weather.city }}: {{ weather.temperature }} - {{ weather.condition }}</p>
+  <button (click)="handleCityClick(weather.city)">Details</button>
+</div>

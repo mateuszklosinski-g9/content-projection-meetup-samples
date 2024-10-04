@@ -1,0 +1,15 @@
+<app-weather-column>
+  <ng-template appColumnTitle>
+    <h3>Americ</h3>
+  </ng-template>
+
+  @for(weatherEntry of weatherData | appRegion: 'America'; track
+  weatherEntry.city) {
+  <ng-template appColumnElement>
+    <app-weather-element
+      [weatherData]="weatherEntry"
+      (cityClick)="handleCityClick(weatherEntry.city)"
+    ></app-weather-element>
+  </ng-template>
+  }
+</app-weather-column>

@@ -1,0 +1,12 @@
+<app-weather-column [elements]="weatherData | appRegion : 'America'">
+  <ng-template appColumnTitle>
+    <h3>America</h3>
+  </ng-template>
+
+  <ng-template appColumnElement let-entry>
+    <app-weather-element
+      [weatherData]="entry"
+      (cityClick)="handleCityClick(entry.city)"
+    ></app-weather-element>
+  </ng-template>
+</app-weather-column>
