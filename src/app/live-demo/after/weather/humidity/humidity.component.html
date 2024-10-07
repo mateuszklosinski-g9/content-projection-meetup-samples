@@ -1,0 +1,11 @@
+@for(region of regions; track region.name) {
+<app-weather-column
+  [title]="region.name"
+  [data]="(region.data | async | appCountryHumidity) ?? []"
+  filterPropName="name"
+>
+  <ng-template appColumnContent let-country>
+    <app-humidity-element [country]="country"></app-humidity-element>
+  </ng-template>
+</app-weather-column>
+}

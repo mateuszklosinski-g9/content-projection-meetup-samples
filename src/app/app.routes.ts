@@ -3,6 +3,7 @@ import { TemperatureComponent } from './live-demo/before/weather/temperature/tem
 import { TemperatureComponent as AfterTemperatureComponent } from './live-demo/after/weather/temperature/temperature.component';
 import { WeatherComponent } from './live-demo/before/weather/weather.component';
 import { WeatherComponent as AfterWeatherComponent } from './live-demo/after/weather/weather.component';
+import { HumidityComponent as AfterHumidityComponent } from './live-demo/after/weather/humidity/humidity.component';
 
 export const routes: Routes = [
   {
@@ -45,6 +46,10 @@ export const afterRoutes: Routes = [
       {
         path: 'temperature',
         component: AfterTemperatureComponent,
+      },
+      {
+        path: 'humidity',
+        component: AfterHumidityComponent,
       },
     ],
   },

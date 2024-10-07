@@ -1,26 +1,28 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { WeatherApi } from '../../shared/api/weather-api.service';
 import { WeatherColumnComponent } from '../weather-column/weather-column.component';
+import { WeatherApi } from '../../shared/api/weather-api.service';
 import { WeatherRegion } from '../../shared/domain/weather-region.model';
 import { Observable } from 'rxjs';
 import { CityWeather } from '../../shared/domain/city-weather.model';
-import { CommonModule } from '@angular/common';
-import { TemperatureElementComponent } from './temperature-element/temperature-element.component';
+import { HumidityElementComponent } from './humidity-element/humidity-element.component';
 import { ColumnContentDirective } from '../weather-column/shared/column-content.directive';
+import { CountryHumidityPipe } from './shared/country-humidity.pipe';
 
 @Component({
-  selector: 'app-temperature',
-  templateUrl: './temperature.component.html',
-  styleUrls: ['./temperature.component.scss'],
+  selector: 'app-humidity',
+  templateUrl: './humidity.component.html',
+  styleUrls: ['./humidity.component.scss'],
   standalone: true,
   imports: [
     CommonModule,
     WeatherColumnComponent,
-    TemperatureElementComponent,
+    HumidityElementComponent,
     ColumnContentDirective,
+    CountryHumidityPipe,
   ],
 })
-export class TemperatureComponent implements OnInit {
+export class HumidityComponent implements OnInit {
   readonly regions: { name: WeatherRegion; data: Observable<CityWeather[]> }[] =
     [
       { name: 'America', data: this.weatherApi.getWeatherForRegion('America') },

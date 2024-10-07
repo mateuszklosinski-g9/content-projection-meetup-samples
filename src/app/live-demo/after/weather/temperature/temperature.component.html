@@ -1,3 +1,11 @@
-<app-weather-column class="column" region="America"></app-weather-column>
-<app-weather-column class="column" region="Europe"></app-weather-column>
-<app-weather-column class="column" region="Asia"></app-weather-column>
+@for(region of regions; track region.name) {
+<app-weather-column
+  [title]="region.name"
+  [data]="(region.data | async) ?? []"
+  [filterPropName]="'name'"
+>
+  <ng-template appColumnContent let-data>
+    <app-temperature-element [city]="data"></app-temperature-element>
+  </ng-template>
+</app-weather-column>
+}
