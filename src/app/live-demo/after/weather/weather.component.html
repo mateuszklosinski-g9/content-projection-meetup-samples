@@ -1,3 +1,18 @@
-<app-weather-column class="column" region="America"></app-weather-column>
-<app-weather-column class="column" region="Europe"></app-weather-column>
-<app-weather-column class="column" region="Asia"></app-weather-column>
+<nav mat-tab-nav-bar class="navigation">
+  @for(link of navLinks; track $index) {
+  <a
+    mat-tab-link
+    [routerLink]="link.link"
+    routerLinkActive
+    #rla="routerLinkActive"
+    [active]="rla.isActive"
+    [disabled]="link.disabled"
+  >
+    {{ link.label }}
+  </a>
+  }
+</nav>
+
+<div class="content">
+  <router-outlet></router-outlet>
+</div>

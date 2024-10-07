@@ -7,7 +7,7 @@ import { OpenWeatherResponse } from './models/open-weather-response.model';
 
 @Injectable()
 export class WeatherApi {
-  private apiKey = '';
+  private apiKey = 'd0259c48b92017dd676dc7dd21ce2f68';
   private apiUrl = 'https://api.openweathermap.org/data/2.5/group';
 
   private cityIdsByRegion: Record<WeatherRegion, number[]> = {
