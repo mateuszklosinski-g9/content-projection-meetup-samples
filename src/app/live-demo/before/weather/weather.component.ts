@@ -1,16 +1,28 @@
 import { Component, OnInit } from '@angular/core';
-import { WeatherApi } from '../shared/api/weather-api.service';
-import { WeatherColumnComponent } from './weather-column/weather-column.component';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @Component({
   selector: 'app-weather',
   templateUrl: './weather.component.html',
   styleUrls: ['./weather.component.scss'],
   standalone: true,
-  providers: [WeatherApi],
-  imports: [WeatherColumnComponent],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive, MatTabsModule],
 })
 export class WeatherComponent implements OnInit {
+  readonly navLinks = [
+    {
+      link: '/weather/temperature',
+      label: 'Temperature',
+      disabled: false,
+    },
+    {
+      link: '/weather/humidity',
+      label: 'Humidity',
+      disabled: true,
+    },
+  ];
+
   constructor() {}
 
   ngOnInit() {}
