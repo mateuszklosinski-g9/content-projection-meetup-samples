@@ -1,5 +1,4 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { CityWeather } from '../../../shared/domain/city-weather.model';
 
 @Pipe({
   name: 'columnFilter',
@@ -7,14 +6,14 @@ import { CityWeather } from '../../../shared/domain/city-weather.model';
 })
 export class ColumnFilterPipe implements PipeTransform {
   transform(
-    value: unknown[] | null,
+    value: any[] | null,
     filterPropName: string,
     cityFilter: string
-  ): unknown[] {
+  ): any[] {
     return value
       ? value?.filter((d) =>
           cityFilter
-            ? ((<any>d)[filterPropName] as string)
+            ? d[filterPropName]
                 .toLowerCase()
                 .startsWith(cityFilter.toLowerCase())
             : true

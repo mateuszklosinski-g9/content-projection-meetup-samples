@@ -23,9 +23,9 @@ import { ColumnContentDirective } from './shared/column-content.directive';
     ColumnFilterPipe,
   ],
 })
-export class WeatherColumnComponent {
+export class WeatherColumnComponent<T> {
   @Input({ required: true }) title!: string;
-  @Input({ required: true }) data: unknown[] = [];
+  @Input({ required: true }) data: T[] = [];
   @Input({ required: true }) filterPropName = '';
 
   @ContentChild(ColumnContentDirective, { read: TemplateRef })

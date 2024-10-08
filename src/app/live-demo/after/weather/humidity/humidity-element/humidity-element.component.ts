@@ -1,18 +1,15 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CountryHumidity } from '../shared/country-humidity.model';
+import { WeatherElementComponent } from '../../weather-element/weather-element.component';
 
 @Component({
   selector: 'app-humidity-element',
   templateUrl: './humidity-element.component.html',
   styleUrls: ['./humidity-element.component.scss'],
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, WeatherElementComponent],
 })
-export class HumidityElementComponent implements OnInit {
+export class HumidityElementComponent {
   @Input({ required: true }) country!: CountryHumidity;
-
-  constructor() {}
-
-  ngOnInit() {}
 }

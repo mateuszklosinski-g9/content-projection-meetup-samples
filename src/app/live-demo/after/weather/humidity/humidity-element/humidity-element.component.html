@@ -1,4 +1,3 @@
-<h5 class="title">{{ country.name }}</h5>
-<div class="details">
+<app-weather-element [title]="country.name">
   <span class="humidity">{{ country.humidity | number : "1.0-0" }} %</span>
-</div>
+</app-weather-element>

@@ -1,9 +1,7 @@
-import { Directive, TemplateRef } from '@angular/core';
+import { Directive, Input, TemplateRef } from '@angular/core';
 
 @Directive({
-  selector: '[appColumnContent]',
+  selector: 'ng-template[appColumnContent]',
   standalone: true,
 })
-export class ColumnContentDirective {
-  constructor(public readonly templateRef: TemplateRef<unknown>) {}
-}
+export class ColumnContentDirective {}
