@@ -1,27 +1,52 @@
-# ContentProjectionMeetupSamples
+# Content Projection Meetup Samples
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.0.
+This project contains all code samples that were used during gravity9's tech workshop - [Improve Angular components flexibility with Content Projection](https://www.meetup.com/gravity-9-tech-meetups-pl/events/302822580/?utm_medium=referr[…]tm_campaign=share-btn_savedevents_share_modal&utm_source=link)
 
-## Development server
+The recording for this meetup can be found [here](https://www.youtube.com/watch?v=EaBUbMB1fB4&t=1s&ab_channel=gravity9).
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+# presentation-samples
 
-## Code scaffolding
+In `presentation-samples` directory you can find all samples that were used during the presentation.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+They are not displayed anywhere after you build and run the application. They were just used as an example for the presentation purposes.
 
-## Build
+# live-demo
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+`live-demo` directory contains fully functional application displaying weather data for different regions.
 
-## Running unit tests
+There are two version of the application available to use. One is before refactoring that was done during the workshops and second is after.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Default version of the app is the one **after** refactorization.
 
-## Running end-to-end tests
+To switch to version before you need to modify the `app.config.ts` file.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```ts
+import { afterRoutes, routes } from "./app.routes";
+import { provideHttpClient } from "@angular/common/http";
 
-## Further help
+export const appConfig: ApplicationConfig = {
+  providers: [provideRouter(afterRoutes), provideHttpClient(), provideAnimations()],
+};
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+You need to replace `afterRoutes` with `routes` in `provideRouter` function.
+
+```ts
+import { afterRoutes, routes } from "./app.routes";
+import { provideHttpClient } from "@angular/common/http";
+
+export const appConfig: ApplicationConfig = {
+  providers: [provideRouter(routes), provideHttpClient(), provideAnimations()],
+};
+```
+
+## API key
+
+For the Weather app to work you need to provide an API key for the `openweathermap.org` service. You can generate one for free after you create an account [here](https://home.openweathermap.org/users/sign_up).
+
+The key needs to be added to `weather-api.service.ts` in `before` or `after` directory depending which version of the app you want to run.
+
+```ts
+  private apiKey = '';
+  private apiUrl = 'https://api.openweathermap.org/data/2.5/group';
+```
